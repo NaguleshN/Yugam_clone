@@ -47,10 +47,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    # 'allauth.account.auth_backends.AuthenticationBackend',
-    # 'index.apps.IndexConfig',
-    # 'account.apps.AccountConfig',
-    # 'community.apps.CommunityConfig',
    
     
 ]
@@ -155,18 +151,12 @@ LOGOUT_REDIRECT_URL='templates/home'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
-
 AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
+   
     'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
