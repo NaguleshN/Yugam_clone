@@ -1,0 +1,38 @@
+{% extends 'options/competitions.html' %}
+
+{%block content%}
+{% for i in events%}
+{% if ev == i.event_name %}
+<style>
+    .container{
+        color:white;
+        text-align:right;
+    }
+</style>
+<section class="section about overflow-hidden">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="about-img">
+                    <br><br><br>
+                    <img src="https://yt3.googleusercontent.com/SrJhPudozqX8wxD__xWM8h9rJJvz4CaG9p17o0kCk1UvjGveqJt2wyvlUTBaZZA8pmu5SxBx8w=s900-c-k-c0x00ffffff-no-rj" alt="" height ="350" width="400" />
+				</div><br>
+                <a href="{% url  'registering' %}" class="btn btn-primary">Register now</a>
+			</div>
+			<div class="col-lg-6 col-md-7 offset-lg-1 mt-5 mt-md-0">
+				<span class="text-color h5 text-uppercase">YUGAM 2023 </span>
+				<h3 class="mb-4 mt-3">{{ i.event_name }} </h3>
+				<p style="font:sans-serif">{{i.instruction}} </p>
+                <p style="font-size:2rem" class="fa fa-calendar">  Date : {{i.date}}</p><br>
+                <p style="font-size:2rem" class="fa fa-code">  Mode  : {{i.mode}}</p><br>
+				<p style="font-size:2rem" class="fa fa-money">  Registration fees  : {{i.registration_fee}}</p><br>
+                <p style="font-size:2rem" class="fa fa-phone">  Contact number  : {{i.contact_number}}</p><br>
+                <p style="font-size:2rem" class="fa fa-clock-o">  Duration  : {{i.duration}} hrs </p><br>
+                <p style="font-size:2rem" class="fa fa-map-marker">  Venue  : {{i.venue}} </p>
+			</div>
+		</div>
+	</div>
+</section>
+{%endif%}
+{% endfor %}
+{%endblock%}
