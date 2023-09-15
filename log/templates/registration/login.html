@@ -9,11 +9,10 @@
         {{ form.as_p}}
         <button type="submit">LOG IN</button>
     </form>
-        <h4>Or</h4>
+        <h3>Or</h3>
     
     {% load socialaccount %}
-    <h2>google login</h2>
+    <h4> Sign in with google</h4>
     <a href="{% provider_login_url 'google' %}?next=/"><img src="https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png" width="40" height="40"></a>
-    <a href="{% provider_login_url 'google' %}?next=/" style ="font-size:2rem"> Sign in with google</a>
 
     {% endblock %}

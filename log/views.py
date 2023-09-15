@@ -9,7 +9,6 @@ from .models import *
 
 # Create your views here.
 
-    
 def prof(request):
     if request.method=="POST":
     
@@ -41,8 +40,7 @@ def signup(request):
 
 
 def home(request):
-    # count=User.objects.count()
-    # 'count':count
+    
     return render(request,'home.html')
 
 def pin_change(request):
@@ -54,12 +52,7 @@ def eventlist(request):
     variety=varieties.objects.all()
     events=Event.objects.all()
     print(events)
-    # a=varieties.type_no.all()
-    # print(events)
-    # context={
-    #     'event_no':events,
-    #     'event_name':varieties.objects.get(type_name="Cultural"),
-    # }
+    
     return render (request,"options/competitions.html",{'events':events,'variety':variety})
 
 
