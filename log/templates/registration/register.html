@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Register</h2>
+  <form method="post">
+
+    {% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="{% url 'register'%}" data-dismiss="alert">x</a>
+           {{ message }}
+    </div>
+
+{% endfor %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+{% endblock %}

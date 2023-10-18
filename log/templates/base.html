@@ -85,7 +85,7 @@
     }
     
     .login-header .nav-tabs > li.active {
-        border-bottom: 6px solid #5584ff;
+        border-bottom: 6px solid #0077b6;
     }
     
     .login-inner h1 {
@@ -150,7 +150,7 @@
     }
     
     .form-btn {
-        background: #5584ff none repeat scroll 0 0;
+        background: #4a4e69 none repeat scroll 0 0;
         border: medium none;
         border-radius: 100px;
         color: #ffffff;
@@ -185,11 +185,11 @@
     /*Home Page*/
     
     .home {
-        background: #20c997;
+        background: #c8b6ff;
     }
     
     #navigation {
-        background: #007bff;
+        background: #4a4e69;
     }
     
     #navigation {
@@ -235,7 +235,7 @@
     }
     
     .add-project {
-        background: #5584ff none repeat scroll 0 0;
+        background: #4a4e69 none repeat scroll 0 0;
         border-radius: 100px;
         color: #ffffff;
         font-size: 14px;
@@ -283,7 +283,7 @@
     }
     
     .icon-info .label {
-        border: 2px solid #20c997;
+        border: 2px solid #c8b6ff;
 
         font-weight: 500;
         padding: 3px 5px;
@@ -305,7 +305,7 @@
         padding: 17px;
     }
     .view {
-        background: #20c997 none repeat scroll 0 0;
+        background: #c8b6ff none repeat scroll 0 0;
         border-radius: 100px;
         color: #ffffff;
         display: inline-block;
@@ -335,11 +335,11 @@
         padding: 15px 9px;
         width: 100%;
         background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 99% 12px;
-        color: #20c997;
+        color: #c8b6ff;
     }
     
     header {
-        background: #20c997 none repeat scroll 0 0;
+        background: #c8b6ff none repeat scroll 0 0;
         box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
         display: inline-block !important;
         line-height: 23px;
@@ -373,14 +373,14 @@
     }
     
     .navi .active a {
-        background: #122143;
+        background: #4a4e69;
         border-left: 5px solid #5584ff;
         padding-left: 15px;
     }
     
     .navi a:hover {
-        background: #122143 none repeat scroll 0 0;
-        border-left: 5px solid #20c997;
+        background: #0077b6 none repeat scroll 0 0;
+        border-left: 5px solid #c8b6ff;
         display: block;
         padding-left: 15px;
     }
@@ -400,7 +400,7 @@
     }
     
     .navbar-default .navbar-toggle .icon-bar {
-        background-color: #0e1a35;
+        background-color: #4a4e69;
     }
     
     .circle-logo {
@@ -420,7 +420,7 @@
     }
     
     .user-dashboard h1 {
-        color: #0e1a35;
+        color: #4a4e69;
         font-size: 30px;
         font-weight: 500;
         margin: 0;
@@ -440,7 +440,7 @@
         font-size: 15px;
         letter-spacing: 0.5px;
         padding-right: 32px;
-        color: #0e1a35;
+        color: #4a4e69;
     }
     
     .sales button::before {
@@ -472,13 +472,13 @@
         border: 0px;
         border-radius: 8px;
         width: 100%;
-        color:#20c997;;
+        color:#c8b6ff;
     }
     .sales .btn-group.open .dropdown-toggle, .btn.active, .btn:active{
         box-shadow: none;
     }
     .sales .dropdown-menu > a {
-        color: #20c997;
+        color: #c8b6ff;
         display: inline-block;
         font-weight: 800;
         padding: 9px 0;
@@ -522,7 +522,7 @@
         color: #ffffff;
     }
     .modal-footer .add-project {
-        background: #5584ff none repeat scroll 0 0;
+        background: #4a4e69 none repeat scroll 0 0;
         border: medium none;
         border-radius: 100px;
         color: #ffffff;
@@ -538,7 +538,7 @@
         text-align: right;
     }
     .cancel {
-        background: #0E1A35     ;
+        background: #4a4e69    ;
         border: medium none;
         border-radius: 100px;
         color: #ffffff;
@@ -700,9 +700,11 @@
     }
     
 </style>
+{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> {% endcomment %}
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 </head>
 <body class="home">
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> {% endcomment %}
     <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
@@ -713,9 +715,13 @@
                 </div>
                 <div class="navi">
                     <ul>
+                        {% comment %} {{ is_admin }} {% endcomment %}
+                       {% if is_admin == "1" %}
+                        <li><a href="{% url 'add_event' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">ADD EVENT</a></span></a></li>
+                        {% endif %}
                         <li><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">HOME</a></span></a></li>
-                        <li><a href="{% url 'registering' %}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">REGISTRATION</a></li>
-                        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workshops</span></a></li>
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">PROFILE</a></li>
+                        <li><a href="{% url 'workshop'%}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workshops</span></a></li>
                         <li><a href="{% url 'eventlist' %}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm" >COMPETITIONS</a></span></a></li>
                         <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">PRO-SHOWS</span></a></li>
                         <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">STUDENT AMBASSADOR</span></a></li>
@@ -736,7 +742,9 @@
                             <a href="{% url 'home' %}" class="fa fa-facebook" > facebook</a>&nbsp;
                             <a href="{% url 'home' %}" class="fa fa-twitter" >  twitter</a>&nbsp;
                             <a href="{% url 'home' %}" class="fa fa-linkedin" > linkedin</a>&nbsp;
+                            {% comment %} <a href="{% url 'admin'%}">admin</a> {% endcomment %}
                            </div>
+                           
                             <h4>Hello,{% if user.is_authenticated%}{{user.username}}{% else %} visitor{% endif %}</h4>
                         </div>
                         <div class="col-md-5">
@@ -745,11 +753,12 @@
                                     <li class=sign>
                                         {%if user.is_authenticated%}
                                         <li class="hidden-xs"><a href="{% url 'logout' %}" class="add-project" data-toggle="modal" data-target="#add_project">LOGoUT</a></li>
-                                        <li class="hidden-xs"><a href="{% url 'password_change' %}" class="add-project" data-toggle="modal" data-target="#add_project">PiN CHANGE </a></li>
-                                        <br><br>
+                                        <li class="hidden-xs"><a href="{% url 'change_password' %}" class="add-project" data-toggle="modal" data-target="#add_project">PiN CHANGE </a></li>
+                                        {% comment %} <li class="hidden-xs"><a href="{% url 'profile' %}" class="add-project" data-toggle="modal" data-target="#add_project">Profile update </a></li> {% endcomment %}
+                                       <br><br>
                                         <p style="color:white;font-size:2rem">You logged in as {{user.username}}</p>
                                         {%else%}
-                                        <li class="hidden-xs"><a href="{% url 'signup' %}" class="add-project" data-toggle="modal" data-target="#add_project">SiGNUP</a></li>
+                                        <li class="hidden-xs"><a href="{% url 'register' %}" class="add-project" data-toggle="modal" data-target="#add_project">SiGNUP</a></li>
                                     
                                         <li class="hidden-xs"><a href="{% url 'login' %}" class="add-project" data-toggle="modal" data-target="#add_project">LOGiN</a></li>
                                     {%endif%}
@@ -764,11 +773,12 @@
                     <div class="row">
                     <hr>{%block content%}
 
-                     {%endblock%}  
+                     {%endblock content%}  
                      <hr>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   
 </body>

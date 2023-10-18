@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %} {% for i in reg %}
+{{i.event_name}}
+<a> // </a>
+{% endfor%}
+
+{% csrf_token %}
+<form id="form" method="POST">
+  <h1 class="text-sm-left">PROFILE</h1>
+  <br />
+  {% csrf_token %}
+  {{user }}{% for j in profile%}
+  {% if j.email_address == "nagulesh03@gmail.com"%}
+  {{j.email_address}}
+  {%endif%}
+  {%endfor%}
+  {{profile}}<br>
+  NAME OF THE CANDIDATE :<input type="text" name="name" value="Your Value"/><br />
+  EMAIL ADDRESS&nbsp;&nbsp;:<input type="email" name="email" /><br />
+  GENDER&nbsp;&nbsp;&nbsp;:<select name="gender">
+    <option value="male">male</option>
+    <option value="female">female</option>
+  </select>
+  <br />
+  MOBILE NUMBER&nbsp;&nbsp;&nbsp;:<input type="number" name="mobile" /><br />
+  COLLEGE&nbsp;&nbsp;&nbsp;:<input type="text" name="college" /><br />
+  YEAR OF STUDY&nbsp;&nbsp;&nbsp;:<select name="year">
+    <option value="First year">1st year</option>
+    <option value="Second year">2nd year</option>
+    <option value="Third year">3rd year</option>
+    <option value="Final year">4th year</option>
+  </select>
+  <br />
+  <br />
+  <button value="submit" id="submit-button">submit</button>
+  <script>
+    function disableSubmitButton() {
+        document.getElementById('submit-button').disabled = true;
+    }
+</script>
+  
+</form>
+
+{% endblock content%}

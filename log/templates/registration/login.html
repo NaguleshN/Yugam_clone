@@ -1,18 +1,26 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-    {% block content %}
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+{% comment %}
+<h2>login</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p}}
+  <button type="submit">LOG IN</button>
+</form>
+{% endcomment %}
+<h3>Or</h3>
 
-    <h2> login </h2>
-    <form method='post'>
-        {% csrf_token %}
+{% load socialaccount %}
+<h4>Sign in with google</h4>
+<a href="{% provider_login_url 'google' %}?next=/">
+  <img
+    src="https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png"
+    width="40"
+    height="40"
+  />
+</a>
 
-        {{ form.as_p}}
-        <button type="submit">LOG IN</button>
-    </form>
-        <h3>Or</h3>
-    
-    {% load socialaccount %}
-    <h4> Sign in with google</h4>
-    <a href="{% provider_login_url 'google' %}?next=/"><img src="https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png" width="40" height="40"></a>
-
-    {% endblock %}
+{% endblock %}

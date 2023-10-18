@@ -1,8 +1,23 @@
 {% extends 'base.html'%}
 
 {% block content%}
+{% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="{% url 'register'%}" data-dismiss="alert">x</a>
+           {{ message }}
+    </div>
+
+{% endfor %}
+<style>
+   .hello{ 
+   
+    font-size:2rem;
+    font-style:sans-serif;
+   }
+</style>
 <h2>YUGAM</h2>
-<p style="color:white;font-size:2rem;font-style:sans-serif"><br>
+<p class="hello"><br>
     Story So Far<br>
     Kumaraguru, one of the strongest foundations for the youth promotes diversity and innovation through its annual festival - Yugam. Since its inception in 2013, Yugam has established itself as a hub for young changemakers from all over the city, as the students of the institution organize events around transformative themes.<br>
     
@@ -11,4 +26,5 @@
     
     The crux of fulfilment is contributing to society, and Kumaraguru nurtures that contentment through Socio constant. In Yugam '23, Socio Constant is striving to increase awareness of climate change by promoting the Sustainable Development Goal of 'Climate action' through its projects. Along with year-long impact projects of Kumaraguru, the main missions of Socio Constant '23 are - Mission LiFE - a drive to move towards a sustainable living, Mission தினை - an initiative to promote the International Millet year and Mission விதை - an effort preserve and gather seeds to highlight the value of plants.
 </p>
+
 {% endblock%}

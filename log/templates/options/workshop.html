@@ -34,12 +34,11 @@
   <div><h2>EVENTS</h2>
   <form>
     <ul>
-      {% for i in events%}
-        <li class ="button" ><a href= "/{{i.event_name}}"  style="color: white;">{{ i.event_name }}</a></li><br>
+      {% for i in workshop%}
+        <li class ="button" ><a href= "/{{i.workshop_name}}"  style="color: white;">{{ i.workshop_name }}</a></li><br>
       {% endfor %}
     </ul>
   </form>
 </html>
     
 {% endblock content%}
-
