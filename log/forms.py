@@ -22,7 +22,6 @@ class PasswordChangeForm(forms.Form):
             raise forms.ValidationError("The new passwords do not match.")
 
 
-
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)

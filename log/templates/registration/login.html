@@ -1,16 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
-<form method="post">
+<form method="post" class="">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Login</button>
 </form>
-{% comment %}
-<h2>login</h2>
-<form method="post">
-  {% csrf_token %} {{ form.as_p}}
-  <button type="submit">LOG IN</button>
-</form>
-{% endcomment %}
 <h3>Or</h3>
 
 {% load socialaccount %}

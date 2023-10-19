@@ -195,8 +195,7 @@ def workshop(request):
 
 @login_required
 def reg_success(request,id):
-    # use = User.objects.get(username=name)
-
+    
     workshop=Workshop.objects.all()
     events=Event.objects.all()
     for i in workshop:
