@@ -1,783 +1,116 @@
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type ="image/png" href= "https://yugam.in/static/yugam21/img/logo_white_new.png"/>
-
-<title>yugam_model</title>
- 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<style>/*Main CSS*/
-    /*Login Signup Page*/
-    a:focus,a:hover,a{
-        outline:none;
-        text-decoration: none;
-    }
-    li,ul{
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .header-top i {
-        font-size: 18px;
-    }
-    .bg-image {
-        background: url(../images/background-login.jpg) no-repeat 0 0 / cover;
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: table;
-    }
-    
-    .login-header {
-        display: inline-block;
-        width: 100%;
-        background: #0e1a35;
-    }
-    
-    .login-signup {
-        display: table-cell;
-        vertical-align: middle;
-        width: 100%;
-    }
-    
-    .login-logo img {
-        cursor: pointer;
-        max-width: 171px;
-        padding: 23px 15px 22px;
-        width: 100%;
-    }
-    
-    .login-header .navbar-right {
-        margin-right: 0px;
-    }
-    
-    .login-header .nav-tabs > li.active > a,
-    .login-header .nav-tabs > li.active > a:focus,
-    .login-header .nav-tabs > li.active > a:hover {
-        background-color: transparent;
-        border: none;
-        color: #fff;
-    }
-    
-    .login-header .nav-tabs > li > a {
-        border: medium none;
-        border-radius: 0;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 48px;
-        padding: 15px 30px;
-        color: #fff;
-    }
-    
-    .login-header .nav-tabs {
-        border-bottom: none;
-    }
-    
-    .login-header .nav-tabs > li {
-        margin-bottom: 0px;
-    }
-    
-    .login-header .nav > li > a:focus,
-    .login-header .nav > li > a:hover {
-        background: none;
-        text-decoration: none;
-    }
-    
-    .login-header .nav-tabs > li.active {
-        border-bottom: 6px solid #0077b6;
-    }
-    
-    .login-inner h1 {
-        color: #17a2b8;
-        font-size: 48px;
-        font-weight: 300;
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-    
-    .login-inner h1 span {
-        color: #17a2b8;
-    }
-    
-    .login-form {
-        text-align: center;
-    }
-    
-    .login-form input {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-        border-color: -moz-use-text-color -moz-use-text-color #d4d9e3;
-        border-image: none;
-        border-style: none none solid;
-        border-width: medium medium 1px;
-        font-size: 13px;
-        font-weight: 300;
-        width: 100%;
-        color: #8492af;
-        padding: 15px 50px;
-        font-size: 17px;
-        max-width: 550px;
-    }
-    
-    .login-form label {
-        margin-bottom: 30px;
-        width: 100%;
-    }
-    
-    .user input {
-        background: rgba(0, 0, 0, 0) url("../images/user.png") no-repeat scroll 7px 12px;
-    }
-    
-    .pass input {
-        background: rgba(0, 0, 0, 0) url("../images/password.png") no-repeat scroll 7px 12px;
-    }
-    
-    .mail input {
-        background: rgba(0, 0, 0, 0) url("../images/mail.png") no-repeat scroll 4px 12px;
-    }
-    
-    .login-signup .tab-content {
-        background: #ffffff none repeat scroll 0 0;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
-        display: inline-block;
-        margin-top: -8px;
-        width: 100%;
-    }
-    
-    .form-btn {
-        background: #4a4e69 none repeat scroll 0 0;
-        border: medium none;
-        border-radius: 100px;
-        color: #ffffff;
-        font-weight: 400;
-        max-width: 250px;
-        padding: 10px 0;
-        position: relative;
-        width: 100%;
-        margin: 40px 0;
-        box-shadow: 0 2px 8px #d2d2d2;
-        -moz-box-shadow: 0 2px 8px #d2d2d2;
-        -webkit-box-shadow: 0 2px 8px #d2d2d2;
-    }
-    
-    .form-btn::before {
-        content: "";
-        font-family: FontAwesome;
-        position: absolute;
-        right: 17px;
-        top: 9px;
-    }
-    
-    .form-details {
-        padding: 35px 0;
-    }
-    
-    .tab-content .tab-pane {
-        padding: 70px 0;
-    }
-    
-    /*Login Signup Page*/
-    /*Home Page*/
-    
-    .home {
-        background: #c8b6ff;
-    }
-    
-    #navigation {
-        background: #4a4e69;
-    }
-    
-    #navigation {
-        padding: 0;
-    }
-    
-    .display-table {
-        display: table;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-    }
-    
-    .display-table-row {
-        display: table-row;
-        height: 100%;
-    }
-    
-    .display-table-cell {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-    
-    .v-align {
-        vertical-align: top;
-    }
-    .logo img {
-        max-width: 180px;
-        padding: 16px 0 17px;
-        width: 100%;
-    }
-    
-    .header-top {
-        margin: 0;
-        padding-top: 2px;
-    }
-    
-    .header-top img {
-        border-radius: 50%;
-        max-width: 48px !important;
-        width: 100%;
-    }
-    
-    .add-project {
-        background: #4a4e69 none repeat scroll 0 0;
-        border-radius: 100px;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 10px 27px 10px 45px;
-        position: relative;
-    }
-    
-    .header-rightside .nav > li > a:focus,
-    .header-rightside .nav > li > a:hover {
-        background: none;
-        text-decoration: none;
-    }
-    
-    .add-project::before {
-        background: rgba(0, 0, 0, 0) url("../images/plus.png") no-repeat scroll 0 0;
-        content: "";
-        height: 12px;
-        left: 17px;
-        position: absolute;
-        top: 12px;
-        width: 12px;
-    }
-    
-    .add-project:hover {
-        color: #ffffff;
-    }
-    
-    .header-top i {
-        color: #0e1a35;
-    }
-    
-    .icon-info {
-        position: relative;
-    }
-    .navi i {
-        font-size: 20px;
-    }
-    .label.label-primary {
-        border-radius: 50%;
-        font-size: 9px;
-        left: 8px;
-        position: absolute;
-        top: -9px;
-    }
-    
-    .icon-info .label {
-        border: 2px solid #c8b6ff;
-
-        font-weight: 500;
-        padding: 3px 5px;
-        text-align: center;
-    }
-    
-    .header-top li {
-        display: inline-block;
-        text-align: center;
-    }
-    
-    .header-top .dropdown-toggle {
-        color: #0e1a35;
-    }
-    
-    .header-top .dropdown-menu {
-        border: medium none;
-        left: -85px;
-        padding: 17px;
-    }
-    .view {
-        background: #c8b6ff none repeat scroll 0 0;
-        border-radius: 100px;
-        color: #ffffff;
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
-        margin-top: 10px;
-        padding: 10px 15px;
-    }
-    
-    .navbar-content > span {
-        font-size: 13px;
-        font-weight: 700;
-    }
-    
-    .img-responsive {
-        width: 100%;
-    }
-    #navigation{
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
-    .search input {
-        border: none;
-        font-size: 15px;
-        padding: 15px 9px;
-        width: 100%;
-        background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 99% 12px;
-        color: #c8b6ff;
-    }
-    
-    header {
-        background: #c8b6ff none repeat scroll 0 0;
-        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
-        display: inline-block !important;
-        line-height: 23px;
-        padding: 15px;
-        transition: all 0.5s ease 0s;
-        width: 100%;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
-    
-    .logo {
-        text-align: center;
-    }
-    
-    .navi a {
-        border-bottom: 1px solid #0d172e;
-        border-top: 1px solid #0d172e;
-        color: #ffffff;
-        display: block;
-        font-size: 17px;
-        font-weight: 500;
-        padding: 28px 20px;
-        text-decoration: none;
-    }
-    
-    .navi i {
-        margin-right: 15px;
-        color: #5584ff;
-    }
-    
-    .navi .active a {
-        background: #4a4e69;
-        border-left: 5px solid #5584ff;
-        padding-left: 15px;
-    }
-    
-    .navi a:hover {
-        background: #0077b6 none repeat scroll 0 0;
-        border-left: 5px solid #c8b6ff;
-        display: block;
-        padding-left: 15px;
-    }
-    
-    .navbar-default {
-        background-color: #ffffff;
-        border-color: #ffffff;
-    }
-    
-    .navbar-toggle {
-        border: none;
-    }
-    
-    .navbar-default .navbar-toggle:focus,
-    .navbar-default .navbar-toggle:hover {
-        background-color: rgba(0, 0, 0, 0);
-    }
-    
-    .navbar-default .navbar-toggle .icon-bar {
-        background-color: #4a4e69;
-    }
-    
-    .circle-logo {
-        margin: 0 auto;
-        max-width: 30px !important;
-        text-align: center;
-    }
-    .hidden-xs{
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
-    
-    .user-dashboard {
-        padding: 0 20px;
-    }
-    
-    .user-dashboard h1 {
-        color: #4a4e69;
-        font-size: 30px;
-        font-weight: 500;
-        margin: 0;
-        padding: 21px 0;
-    }
-    .sales {
-        background: #ffffff none repeat scroll 0 0;
-        border: 1px solid #d4d9e3;
-        display: inline-block;
-        padding: 15px;
-        width: 100%;
-    }
-    .sales button {
-        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-        border: 1px solid #dadee7;
-        border-radius: 100px;
-        font-size: 15px;
-        letter-spacing: 0.5px;
-        padding-right: 32px;
-        color: #4a4e69;
-    }
-    
-    .sales button::before {
-        content: "";
-        font-family: FontAwesome;
-        position: absolute;
-        right: 12px;
-        top: 11px;
-    }
-    .sales  .btn-group {
-        float: right;
-    }
-    .sales h2 {
-        color: #8492af;
-        float: left;
-        font-size: 21px;
-        font-weight: 600;
-        margin: 0;
-        padding: 9px 0 0;
-    }
-    .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-        font-size: 15px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-    .sales .dropdown-menu{
-        margin: 0px;
-        padding: 0px;
-        border: 0px;
-        border-radius: 8px;
-        width: 100%;
-        color:#c8b6ff;
-    }
-    .sales .btn-group.open .dropdown-toggle, .btn.active, .btn:active{
-        box-shadow: none;
-    }
-    .sales .dropdown-menu > a {
-        color: #c8b6ff;
-        display: inline-block;
-        font-weight: 800;
-        padding: 9px 0;
-        text-align: center;
-        width: 100%;
-    }
-    #my-cool-chart svg {
-        width: 100%;
-    }
-    .sales .dropdown-menu > a:hover{
-        color: #55ADFF;   
-    }
-    .shield-buttons {
-        display: none;
-    }
-    .close, .close:focus, .close:hover {
-        color: #fff;;
-        opacity: 1;
-        text-shadow: none;
-    }
-    .modal-body input {
-        border: 1px solid #d4d9e3;
-        font-size: 14px;
-        font-weight: 300;
-        margin: 5px 0;
-        padding: 14px 10px;
-        width: 100%;
-        color: #8492af;
-    }
-    .modal-body textarea {
-        border: 1px solid #d4d9e3;
-        font-size: 14px;
-        font-weight: 300;
-        height: 200px;
-        margin-top: 5px;
-        padding: 9px 10px;
-        width: 100%;
-        color: #8492af;
-    }
-    .modal-header.login-header h4 {
-        color: #ffffff;
-    }
-    .modal-footer .add-project {
-        background: #4a4e69 none repeat scroll 0 0;
-        border: medium none;
-        border-radius: 100px;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 10px 30px;
-        position: relative;
-    }
-    .modal-footer .add-project::before{display: none;}
-    .modal-footer {
-        border: 0 none;
-        padding: 10px 15px 26px;
-        text-align: right;
-    }
-    .cancel {
-        background: #4a4e69    ;
-        border: medium none;
-        border-radius: 100px;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 10px 30px;
-        position: relative;
-    }
-    .modal{
-        top: 20%; 
-    }
-    .modal-header .close {
-        margin-top: 2px;
-    }
-    .search input:focus{
-        border-bottom: 1px solid #BDC4D4;
-        line-height:22px;
-        transition: 0.1s all;
-    }
-    .modal-header.login-header {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    /*Main CSS*/
-    
-    @media only screen and (max-device-width: 767px) {
-        .login-logo img {
-            margin: 0 auto;
-        }
-        .login-details .nav-tabs > li {
-            text-align: center;
-            width: 50%;
-        }
-        .login-signup .login-inner h1 {
-            font-size: 26px;
-            margin-bottom: 0;
-            margin-top: 10px;
-        }
-        .login-inner .login-form input {
-            font-size: 15px;
-            max-width: 100%;
-            padding: 15px 45px;
-        }
-        .login-inner .form-details {
-            padding: 25px;
-        }
-        .login-inner .login-form label {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        .login-inner .form-btn {
-            margin: 0;
-            max-width: 180px;
-        }
-        .tab-content .tab-pane {
-            padding: 20px 0;
-        }
-        #navigation .navi a {
-            font-size: 14px;
-            padding: 20px;
-            text-align: center;
-        }
-        #navigation .navi i {
-            margin-right: 0px;
-        }
-        #navigation .navi a:hover,
-        #navigation .navi .active a {
-            background: #122143 none repeat scroll 0 0;
-            border-left: none;
-            display: block;
-            padding-left: 20px;
-        }
-        header .header-top img {
-            max-width: 38px !important;
-        }
-        .v-align header {
-            padding: 12px 15px;
-        }
-        header .header-top li {
-            padding-left: 13px;
-            padding-right: 6px;
-        }
-        .navbar-default .navbar-toggle {
-            border-color: rgba(0, 0, 0, 0);
-        }
-        .navbar-header .navbar-toggle {
-            float: left;
-            margin: 0;
-            padding: 0;
-            top: 12px;
-        }
-        button,
-            html [type="button"],
-            [type="reset"],
-            [type="submit"] {
-                outline: medium none;
-        }
-        .user-dashboard .sales h2 {
-            color: #8492af;
-            float: left;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0;
-            padding: 13px 0 0;
-    }
-        .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-            font-size: 11px;
-    }
-        .user-dashboard .sales button {
-            font-size: 11px;
-            padding-right: 23px;
-    }  
-        .user-dashboard .sales h2 {
-        font-size: 12px;
-    }
-    .gutter{
-        padding: 0;
-    }
-    }
-    
-    @media only screen and (max-device-width: 992px) {
-        header .header-top li {
-            padding-left: 20px !important;
-            padding-right: 0;
-    }
-        header .logo img {
-            max-width: 125px !important;
-    }
-    
-    }
-    
-    @media only screen and (min-device-width: 767px) and (max-device-width: 998px){
-          .user-dashboard .header-top {
-            padding-top: 5px;
-    }
-        .user-dashboard .header-rightside {
-            display: inline-block;
-            float: left;
-            width: 100%;
-    }
-        .user-dashboard .header-rightside .header-top img {
-            max-width: 41px !important;
-    } 
-        .user-dashboard .sales button {
-        font-size: 10px;
-    }
-        .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-        font-size: 12px;
-    }
-        .user-dashboard .sales h2 {
-        font-size: 15px;
-    }
-    }
-    @media only screen and (min-device-width:998px) and (max-device-width: 1350px){
-            #navigation .logo img {
-        max-width: 130px;
-        padding: 16px 0 17px;
-        width: 100%;
-    }
-    }
-    
-</style>
-{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> {% endcomment %}
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+    <title>Event management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% comment %} <link rel="stylesheet" href ="{% static 'css/style.css' %}"> {% endcomment %}
 </head>
-<body class="home">
-    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> {% endcomment %}
-    <div class="container-fluid display-table">
-        <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <div class="logo">
-                    <a hef="home.html"><img src="https://yugam.in/static/yugam21/img/yugam_2023.png" alt="yugam_logo" class="hidden-xs hidden-sm">
-                        <img src="https://yugam.in/static/yugam21/img/yugam_2023.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
-                    </a>
-                </div>
-                <div class="navi">
-                    <ul>
-                       {% if is_admin == "1" %}
-                        <li><a href="{% url 'add_event' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">ADD EVENT</a></span></a></li>
-                        {% endif %}
-                        <li><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">HOME</a></span></a></li>
-                        <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">PROFILE</a></li>
-                        <li><a href="{% url 'workshop'%}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workshops</span></a></li>
-                        <li><a href="{% url 'eventlist' %}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm" >COMPETITIONS</a></span></a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">PRO-SHOWS</span></a></li>
-                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">STUDENT AMBASSADOR</span></a></li>
-                        <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">AGENDA</span></a></li>
-                        <li><a href="{% url 'room_booking'%}"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">ACCOMADATION</span></a></li>
-                    </ul> 
-                </div>
+<body class="p-5 text-gray-900 bg-full" style="background-image: url('https://img.collegepravesh.com/2022/05/KCT-Coimbatore.jpg')">
+    <div class=" mx-auto"> 
+            <section class="bg-rose-200 rounded-2xl p-10 shadow-lg">
+            <div class="flex">
+            <div class="h-12 w-12 ">
+                <img class="rounded-xl" src="https://www.kct.ac.in/wp-content/uploads/2021/07/home-new-image.png" alt="" height="500" width="450">
             </div>
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
-                <div class="row">
-                    <header>
-                        <div class="col-md-7">
+            <div class="pl-4">
+                <a class="text-3xl font-bold border-r pr-10 border-black mr-10 hover:text-red-500" href="https://youtu.be/CxwiVBQOEqU">YUGAM</a>
+            </div>
+                
+                <div class="my-auto">
+                    <button class="hidden "></button>
+                    <ul class="flex font-bold ">
                         
-                           <h1 style="color:white">Yugam</h1>
-                           <div style="font-size:2rem">
-                            <a style="color:black">Connect us on . </a>
-                            <a href="{% url 'home' %}" class="fa fa-whatsapp" > whatsapp</a>&nbsp;
-                            <a href="{% url 'home' %}" class="fa fa-facebook" > facebook</a>&nbsp;
-                            <a href="{% url 'home' %}" class="fa fa-twitter" >  twitter</a>&nbsp;
-                            <a href="{% url 'home' %}" class="fa fa-linkedin" > linkedin</a>&nbsp;
-                            {% comment %} <a href="{% url 'admin'%}">admin</a> {% endcomment %}
-                           </div>
-                           
-                            <h4>Hello,{% if user.is_authenticated%}{{user.username}}{% else %} visitor{% endif %}</h4>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="header-rightside">
-                                <ul class="list-inline header-top pull-right"><br>  
-                                    <li class=sign>
-                                        {%if user.is_authenticated%}
-                                        <li class="hidden-xs"><a href="{% url 'logout' %}" class="add-project" data-toggle="modal" data-target="#add_project">LOGoUT</a></li>
-                                        <li class="hidden-xs"><a href="{% url 'change_password' %}" class="add-project" data-toggle="modal" data-target="#add_project">PiN CHANGE </a></li>
-                                        {% comment %} <li class="hidden-xs"><a href="{% url 'profile' %}" class="add-project" data-toggle="modal" data-target="#add_project">Profile update </a></li> {% endcomment %}
-                                       <br><br>
-                                        <p style="color:white;font-size:2rem">You logged in as {{user.username}}</p>
-                                        {%else%}
-                                        <li class="hidden-xs"><a href="{% url 'register' %}" class="add-project" data-toggle="modal" data-target="#add_project">SiGNUP</a></li>
-                                    
-                                        <li class="hidden-xs"><a href="{% url 'login' %}" class="add-project" data-toggle="modal" data-target="#add_project">LOGiN</a></li>
-                                    {%endif%}
-                                        
-                                    </li>          
-                                </ul>
-                            </div>
-                        </div>
-                    </header>
-                </div>
-                <div class="user-dashboard">
-                    <div class="row">
-                    <hr>{%block content%}
+                        <li><a href="{% url 'home' %}" class="mr-5 hover:text-blue-700">HOME</a></li> 
+                        <li><a href="{% url 'eventlist' %}" class="mr-5 hover:text-blue-700">COMPETITIONS</a></li>
+                        <li><a href="{% url 'workshop'%}" class="mr-5 hover:text-blue-700">WORKSHOP</a></li>
+                        <li><a href="{% url 'room_booking'%}" class="mr-5 hover:text-blue-700">CONTACT</a></li>
 
-                     {%endblock content%}  
-                     <hr>
-                    </div>
+                    </ul>
                 </div>
+                <div class="flex mx-auto">
+                    {% if user.is_authenticated%}
+                    <div>
+                        <a href="{% url 'profile' %}" class="flex bg-red-500 text-white font-bold px-2 py-2 pl-2 rounded ml-auto shadow-2xl  hover:shadow-none" >
+                            <div class="pr-1">PROFILE</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="pl-8 ml-3">
+                        
+                        {%if user.is_authenticated%}
+                        <a href="{% url 'logout' %}" class="flex bg-red-500 text-white font-bold px-2 py-2 rounded ml-auto shadow-2xl  hover:shadow-none" > <div class="pr-1">LOGOUT</div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </a>
+                        {%else%}
+                        <a href="{% url 'register' %}" class="flex bg-red-500 text-white font-bold px-2 py-2 rounded ml-auto shadow-2xl  hover:shadow-none" > <div class="pr-1">REGISTER</div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </a>
+                        {%endif%}
+                    </div>
+                    <div class="pl-10">
+                        {%if user.is_authenticated%}
+                    <a href="{% url 'change_password' %}" class="flex bg-red-500 text-white font-bold px-2 py-2 rounded ml-auto shadow-2xl  hover:shadow-none"> <div class="pr-1">CHANGE PIN</div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </a>
+                    {%else%}
+                    <a href="{% url 'login' %}" class="flex bg-red-500 text-white font-bold px-2 py-2 rounded ml-auto shadow-2xl  hover:shadow-none"> <div class="pr-1">LOGIN</div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    </a>
+                    
+                    {%endif%}
+                    </div>
+                </div>              
             </div>
-        </div>
+        <br>
+        <div class="mb-3">
+            <p>you logged in as {% if user.is_authenticated%}{{user.username}}{% else %} visitor{% endif %}</p>
+        </div> 
+       {% if user.is_authenticated%} 
+        <div class="flex border border-green-300 mb-2">
+            <p class="mr-5 ">EVENTS ENROLLED :</p>
+            <ul class="flex font-bold ">
+                <li><a href="{% url 'events_enrolled' %}" class="mr-5 hover:text-blue-700">EVENTS/WORKSHOP ENROLLED</a></li>
+                <li><a href="{% url 'send_email' %}" class="mr-5 hover:text-blue-700">SEND MAIL</a></li>
+                {% comment %} <a href="{% url 'send_email' %}" class="">send mail</a> {% endcomment %}
+            </ul>
+        </div> 
+        {% endif %}
+
+        {% if is_admin == "1" %}
+        <div class="flex border border-green-300 ">
+            <p class="mr-5 ">MANAGEMENT ACCESS :</p>
+            <ul class="flex font-bold">
+                
+                <li><a href="{% url 'add_event' %}" class="mr-5 hover:text-blue-700">ADD EVENT</a></li>
+                <li><a href="{% url 'reg_details' %}" class="mr-5 hover:text-blue-700">REGISTERED DETAILS</a></li>
+                
+                
+            </ul>
+            
+        </div>  
+        {% endif %}
+        
+        
+        <hr class="mt-3 mb-2 bg-gray-700 border-b border-dashed border-gray-600">
+        <br>
+        
+        
+        {% block content%}
+        
+        {% endblock %}
+        
     </div>
+    </section>
    
 </body>
+</html>

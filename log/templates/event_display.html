@@ -3,69 +3,59 @@
 {%block content%}
 {% for i in events%}
 {% if ev == i.event_name %}
-<style>
-    .container{
-       
-        text-align:right;
-    }
-</style>
-<section class="section about overflow-hidden">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5">
-				<div class="about-img">
-                    <br><br><br>
-                    <img src="https://yt3.googleusercontent.com/SrJhPudozqX8wxD__xWM8h9rJJvz4CaG9p17o0kCk1UvjGveqJt2wyvlUTBaZZA8pmu5SxBx8w=s900-c-k-c0x00ffffff-no-rj" alt="" height ="350" width="400" />
-				</div><br>
-                <a href="{% url 'reg_suc' i.id %}" class="btn btn-primary">Register now</a>
+{% comment %} <section > {% endcomment %}
+<div>
+	<p class="flex justify-center font-bold text-3xl mr-14">YUGAM 2023 </p>
+	<div class="">			
+		 
+            <img class="float-right w-96 rounded-xl mr-5 p-10" src="https://yt3.googleusercontent.com/SrJhPudozqX8wxD__xWM8h9rJJvz4CaG9p17o0kCk1UvjGveqJt2wyvlUTBaZZA8pmu5SxBx8w=s900-c-k-c0x00ffffff-no-rj" alt="" />
+		
+			<div class="ml-5">
+				<p class="font-bold text-2xl	mt-2 mb-2">{{ i.event_name }} </p>
+				<p class="font-bold  mb-2">{{i.instruction}} </p>
+                <p class="font-bold h-2 mb-2">  Date  : {{i.date}}</p><br>
+                <p class="font-bold h-2 mb-2">  Mode  : {{i.mode}}</p><br>
+				<p class="font-bold  h-2 mb-2">  Registration fees  : {{i.registration_fee}}</p><br>
+                <p class="font-bold h-2 mb-2">  Contact number  : {{i.contact_number}}</p><br>
+                <p class="font-bold h-2 mb-2">  Duration  : {{i.duration}} hrs </p><br>
+                <p class="font-bold h-2 mb-2">  Venue  : {{i.venue}} </p>
 			</div>
-			<div class="col-lg-6 col-md-7 offset-lg-1 mt-5 mt-md-0">
-				<span class="text-color h5 text-uppercase">YUGAM 2023 </span>
-				<h3 class="mb-4 mt-3">{{ i.event_name }} </h3>
-				<p style="font:sans-serif">{{i.instruction}} </p>
-                <p style="font-size:2rem" class="fa fa-calendar">  Date : {{i.date}}</p><br>
-                <p style="font-size:2rem" class="fa fa-code">  Mode  : {{i.mode}}</p><br>
-				<p style="font-size:2rem" class="fa fa-money">  Registration fees  : {{i.registration_fee}}</p><br>
-                <p style="font-size:2rem" class="fa fa-phone">  Contact number  : {{i.contact_number}}</p><br>
-                <p style="font-size:2rem" class="fa fa-clock-o">  Duration  : {{i.duration}} hrs </p><br>
-                <p style="font-size:2rem" class="fa fa-map-marker">  Venue  : {{i.venue}} </p>
-			</div>
-		</div>
+
+			{% if check == 0 %}
+			<a href="{% url 'reg_success' name='event' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm p-3 mr-2 mb-12 mt-16 ml-96 focus:outline-none">Register now</a>
+			{% elif check == 1 %}
+			<a href="{% url 'cancel_success' name='event' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm p-3 mr-2 mb-12 mt-16 ml-96 focus:outline-none">Cancel Registeration</a>
+			{%endif%}
 	</div>
-</section>
+</div>
+{% comment %} </section> {% endcomment %}
 {%endif%}
 {% endfor %}
 {% for i in workshop%}
 {% if ev == i.workshop_name %}
-<style>
-    .container{
-       
-        text-align:right;
-    }
-</style>
-<section class="section about overflow-hidden">
-	<div class="container">	
-		<div class="row">
-			<div class="col-md-5">
-				<div class="about-img">
-                    <br><br><br>
-                    <img src="https://yt3.googleusercontent.com/SrJhPudozqX8wxD__xWM8h9rJJvz4CaG9p17o0kCk1UvjGveqJt2wyvlUTBaZZA8pmu5SxBx8w=s900-c-k-c0x00ffffff-no-rj" alt="" height ="350" width="400" />
-				</div><br>
-                <a href="{% url 'reg_suc' i.id %}" class="btn btn-primary">Register now</a>
-			</div>
-			<div class="col-lg-6 col-md-7 offset-lg-1 mt-5 mt-md-0">
-				<span class="text-color h5 text-uppercase">YUGAM 2023 </span>
-				<h3 class="mb-4 mt-3">{{ i.workshop_name }} </h3>
-				<p style="font:sans-serif">{{i.description}} </p>
-                <p style="font-size:2rem" class="fa fa-calendar">  Date : {{i.date}}</p><br>
-				<p style="font-size:2rem" class="fa fa-money">  Registration fees  : {{i.registration_fee}}</p><br>
-                <p style="font-size:2rem" class="fa fa-phone">  Contact number  : {{i.contact_number}}</p><br>
-                <p style="font-size:2rem" class="fa fa-clock-o">  Duration  : {{i.duration}} hrs </p><br>
-                <p style="font-size:2rem" class="fa fa-map-marker">  Venue  : {{i.venue}} </p>
-			</div>
+<div>
+	<span class="flex justify-center font-bold text-3xl mr-14">YUGAM 2023 </span>
+		<div class="">
+			
+			<img class="float-right w-96 rounded-xl mr-5 p-10" src="https://yt3.googleusercontent.com/SrJhPudozqX8wxD__xWM8h9rJJvz4CaG9p17o0kCk1UvjGveqJt2wyvlUTBaZZA8pmu5SxBx8w=s900-c-k-c0x00ffffff-no-rj" alt="" />
+			
+		<div class="ml-5">
+				<p class= "font-bold text-2x mt-2 mb-2">{{ i.workshop_name }} </p>
+				<p class="font-bold  mb-2">{{i.description}} </p>
+                <p class="font-bold">  Date : {{i.date}}</p><br>
+				<p class="font-bold">  Registration fees  : {{i.registration_fee}}</p><br>
+                <p class="font-bold">  Contact number  : {{i.contact_number}}</p><br>
+                <p class="font-bold">  Duration  : {{i.duration}} hrs </p><br>
+                <p class="font-bold">  Venue  : {{i.venue}} </p>
 		</div>
+		{% if check == 0%}
+			<a href="{% url 'reg_success' name='workshop' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm p-3 mr-2 mb-12 mt-16 ml-96 focus:outline-none">Register now</a>
+		{% elif check == 1%}
+		<a href="{% url 'cancel_success' name='workshop' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm p-3 mr-2 mb-12 mt-16 ml-96 focus:outline-none">Cancel Registeration</a>
+		{%endif%}
+
 	</div>
-</section>
+</div>
 {%endif%}
 {% endfor %}
-{%endblock%}
+{%endblock content%}

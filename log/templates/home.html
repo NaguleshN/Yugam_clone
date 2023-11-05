@@ -3,27 +3,32 @@
 {% block content%}
 {% for message in messages %}
     
-    <div class="alert alert-success">
-        <a class="close" href="{% url 'register'%}" data-dismiss="alert">x</a>
-           {{ message }}
+    <div class="flex justify-between bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-2 py-2 shadow-md mb-5" role="alert">
+        <div class="flex">
+            <div class="py-1">
+                <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg>
+            </div>
+            <div class="" >{{ message }}</div>
+            
+        </div>
+            <div>
+                <a class="close" href="{% url 'profile'%}" data-dismiss="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </a>                      
+            </div>
     </div>
 
 {% endfor %}
-<style>
-   .hello{ 
-   
-    font-size:2rem;
-    font-style:sans-serif;
-   }
-</style>
+
 <h2>YUGAM</h2>
-<p class="hello"><br>
+<p class="text-lg"><br>
     Story So Far<br>
-    Kumaraguru, one of the strongest foundations for the youth promotes diversity and innovation through its annual festival - Yugam. Since its inception in 2013, Yugam has established itself as a hub for young changemakers from all over the city, as the students of the institution organize events around transformative themes.<br>
+    Kumaraguru, one of the strongest foundations for the youth promotes diversity and innovation through its annual festival - Yugam. Since its inception in 2013, Yugam has established itself as a hub for young changemakers from all over the city, as the students of the institution organize events around transformative themes. 
     
-    Following a successful revival last year amidst the global pandemic, Yugam '23 returns with the overarching theme of "TRANSCEND", symbolizing the progress in addressing the impact of climate change and our collective efforts to overcome vulnerability.
-    <br>
-    
+    Following a successful revival last year amidst the global pandemic, Yugam '23 returns with the overarching theme of "TRANSCEND", symbolizing the progress in addressing the impact of climate change and our collective efforts to overcome vulnerability. 
+
     The crux of fulfilment is contributing to society, and Kumaraguru nurtures that contentment through Socio constant. In Yugam '23, Socio Constant is striving to increase awareness of climate change by promoting the Sustainable Development Goal of 'Climate action' through its projects. Along with year-long impact projects of Kumaraguru, the main missions of Socio Constant '23 are - Mission LiFE - a drive to move towards a sustainable living, Mission தினை - an initiative to promote the International Millet year and Mission விதை - an effort preserve and gather seeds to highlight the value of plants.
 </p>
 

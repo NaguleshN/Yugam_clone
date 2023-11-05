@@ -3,39 +3,14 @@
 
 {% block content%}  
 {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
-<html>
-  <head>
-    <style>
-      .button {
-        display: block;
-        
-        height: 75px;
-          background: #4E9CAF;
-          padding: 5px;
-          text-align: center;
-          border-radius: 5px;
-          color: white;
-          font-weight: bold;
-          line-height: 55px;
-         
-          display: block;
-          width: 100%;
-          border: none;
-          background-color: #4a4e69;
-          color: white;
-          padding: 14px 28px;
-          font-size: 16px;
-          cursor: pointer;
-          text-align: center;
-        }
-    </style>
-  </head>   
+<html>  
  
-  <div><h2>EVENTS</h2>
+<h2 class="flex justify-center font-bold text-3xl mr-14 mb-10">WORKSHOPS</h2>
   <form>
     <ul>
       {% for i in workshop%}
-        <li class ="button" ><a href= "/{{i.workshop_name}}"  style="color: white;">{{ i.workshop_name }}</a></li><br>
+        <li class ="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white flex justify-center p-5 px-4 rounded-2xl" ><a href= "/{{i.workshop_name}}"  style="color: white;" >{{ i.workshop_name }}</a></li><br>
+        
       {% endfor %}
     </ul>
   </form>

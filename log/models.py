@@ -1,11 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.shortcuts import render
 
 # Create your models here.
-
-
-
-
 
 class varieties(models.Model):
     type_no=models.IntegerField()
@@ -29,7 +26,7 @@ class Event(models.Model):
         return self.event_name
   
 gender_choice=(("male","male"),("female","female"))  
-year_option=(("year 1","First year"),("year 2","Second year"),("year 3","Third year"),("year 4","Final year"))
+year_option=(("First year","First year"),("Second year","Second year"),("Third year","Third year"),("Final year","Final year"))
 
 # class register(models.Model):
 #     
@@ -38,14 +35,14 @@ year_option=(("year 1","First year"),("year 2","Second year"),("year 3","Third y
 #     
     
 class Profile(models.Model):
-    user=models.ForeignKey(request.user,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=20)
-    yugam_id=models.BigAutoField(primary_key=True,unique=True)
+    yugam_id=models.BigAutoField(primary_key = True)
     email_address=models.EmailField(unique=True)
     gender=models.CharField(max_length=10,choices=gender_choice)
     mobile=models.BigIntegerField()
     college=models.CharField(max_length=30)
-    year_of_study=models.CharField(max_length=10,choices=year_option)
+    year_of_study=models.CharField(max_length=15,choices=year_option)
     
     
 class Workshop(models.Model):
@@ -61,6 +58,6 @@ class Workshop(models.Model):
         return self.workshop_name
     
 class registeration(models.Model):
-    user=models.ForeignKey(request.user,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     event_or_workshop=models.CharField(max_length=30)
     

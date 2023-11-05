@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>HELLO  {{request.user}}</h1>
+<h2 class="flex justify-center font-bold text-3xl mr-14 mb-10">EVENTS/WORKSHOPS ENROLLED</h2>
+
+{% for i in reg%}
+{% if i.user == request.user %}
+<p  class="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white flex justify-center p-5 px-4 rounded-2xl" ><a href= "/{{i.event_or_workshop}}">{{ i.event_or_workshop }}</a></p><br>
+
+{%endif%}
+{%endfor%}
+
+{% for i in events%}
+{{i.user}}
+{% if request.user == i.user%}
+
+<li class ="font-bold" ><a href= "/{{i.event_name}}" >{{ i.event_name }}</a></li><br>
+
+{%endif%}
+{% endfor %}
+
+{% for i in workshop%}
+{{i.user}}
+{% if request.user == i.user%}
+<li class ="button" ><a href= "/{{i.workshop_name}}"  >{{ i.workshop_name }}</a></li><br>
+     
+{%endif%}
+{% endfor %}
+
+{% endblock %}

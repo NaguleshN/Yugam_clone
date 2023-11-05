@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for i in reg %}
+{{i.event_name}}
+<a> // </a>
+{% endfor%} 
+<script>
+  function select_option (id,value_selected) {
+  
+   var select; 
+   select = document.getElementById(id);
+   if (select == null) return 0;
+   
+   var option;
+   option = select.options.namedItem(value_selected);
+   if (option == null) return 0;
+  
+   option.selected = "selected";
+   return true;
+  } 
+  </script>
+<div class = 'container'>
+  
+  <form method="POST">
+    {% csrf_token %}
+    
+    {% for j in profile %}
+    {% if request.user == j.user  %}
+    <div id = 'form-container'>
+        {% comment %} {{form.title}} {% endcomment %}
+        
+        
+        
+          
+          <br />
+          <br />
+          <script>select_option ("year","{{j.year_of_study}}");</script> 
+          <div id = 'form-container' class="container w-1/2 mx-auto bg-teal-300 rounded-2xl text-bold text-gray-900 shadow-lg">
+            <div class="flex justify-center font-bold text-2xl pt-10">
+              <h1>UPDATE PROFILE</h1>
+            </div>
+          <div class="flex justify-center pt-10 pb-5">
+            <p class="pr-5">
+              NAME OF THE CANDIDATE :
+            </p>
+        
+            <input type="text" name="name" value="{{j.name }}" /><br />
+          </div>
+          <div class="flex justify-center  pb-5">
+            <p class="pr-5">
+              EMAIL ADDRESS :
+            </p>
+        
+            <input
+              type="email"
+              name="email"
+              value="{{j.email_address}}"
+              
+            /><br />
+          </div>
+          
+          <div class="flex justify-center  pb-5">
+            <p class="pr-5">
+              GENDER :
+            </p>
+        
+          <select name="gender" value="{{j.gender}}" id="gender">
+            <option value="male" id="male">male</option>
+            <option value="female" id="female">female</option>
+            
+          </select>
+          </div>
+          <script>select_option ("gender","{{j.gender}}");</script>
+          
+          <div class="flex justify-center  pb-5">
+            <p class="pr-5">
+              MOBILE NUMBER :
+            </p>
+        
+            <input
+            type="number"
+            name="mobile"
+            value="{{j.mobile}}"
+           
+            /><br />
+            
+          </div>
+          <div class="flex justify-center  pb-5">
+            <p class="pr-5">
+              COLLEGE :
+            </p>
+        
+            <input
+            type="text"
+            name="college"
+            value="{{j.college}}"
+            
+          /><br />
+            
+          </div>
+        
+          <div class="flex justify-center  pb-5">
+            <p class="pr-5">
+              YEAR :
+            </p>
+        
+          <select
+          name="year" value="{{j.year_of_study}}" id="year">
+            <option value="First year" id="First year">1st year</option>
+            <option value="Second year" id="Second year">2nd year</option>
+            <option value="Third year" id ="Third year">3rd year</option>
+            <option value="Final year" id="Final year">4th year</option>
+          </select>
+          <script>select_option ("year","{{j.year_of_study}}");</script> 
+        </div>
+        <div class="flex justify-center pb-10 pt-5">
+
+        <button type ="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">UPDATE</button>
+         
+        
+        </div>
+    </div>
+    {%endif%}
+    {% endfor%}
+</form>
+</div>
+{% endblock %}

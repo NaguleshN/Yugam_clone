@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<form method="POST">
+    {% csrf_token %}
+    <select name="filter" id="filter" class="py-1">
+        <option selected>---</option>
+        <option value="ALL" >ALL</option>
+        {%for i in events%}
+        <option value="{{i.event_name}}">{{i.event_name}}</option>
+        {%endfor%}
+        {%for i in workshop%}
+        <option value="{{i.workshop_name}}">{{i.workshop_name}}</option>
+        {%endfor%}
+    <select>
+        <button type=submit value="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded ml-5">filter</button>
+</form>
+
+<br>
+{% comment %} {%%} {% endcomment %}
+{% block disp%}
+
+{% endblock%}
+
+{%endblock%}

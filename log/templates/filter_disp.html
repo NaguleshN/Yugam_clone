@@ -1,0 +1,21 @@
+{% extends 'options/registered_details.html'%}
+{% block disp%}
+
+{%for i in reg%}
+{% if filter == i.event_or_workshop%}
+{{i.user}}
+{{i.event_or_workshop}}
+<br>
+{%endif%}
+{% endfor%} 
+{% if filter == "ALL"%}
+{% for i in reg%}
+
+{{i.user}}
+{{i.event_or_workshop}}
+<br>
+
+{%endfor%}
+{% endif%}
+
+{%endblock%}
