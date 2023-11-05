@@ -38,7 +38,7 @@ year_option=(("year 1","First year"),("year 2","Second year"),("year 3","Third y
 #     
     
 class Profile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(request.user,on_delete=models.CASCADE)
     name=models.CharField(max_length=20)
     yugam_id=models.BigAutoField(primary_key=True,unique=True)
     email_address=models.EmailField(unique=True)
@@ -61,6 +61,6 @@ class Workshop(models.Model):
         return self.workshop_name
     
 class registeration(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(request.user,on_delete=models.CASCADE)
     event_or_workshop=models.CharField(max_length=30)
     

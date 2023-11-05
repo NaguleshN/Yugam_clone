@@ -14,8 +14,8 @@
   {%endif%}
   {%endfor%}
   {{profile}}<br>
-  {{}}
-  NAME OF THE CANDIDATE :<input type="text" name="name" value="{{ }}"/><br />
+  {{request.user.profile.name }}
+  NAME OF THE CANDIDATE :<input type="text" name="name" value="{{request.user.profile.name }}"/><br />
   EMAIL ADDRESS&nbsp;&nbsp;:<input type="email" name="email" /><br />
   GENDER&nbsp;&nbsp;&nbsp;:<select name="gender">
     <option value="male">male</option>

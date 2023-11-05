@@ -7,40 +7,40 @@ from .forms import RegistrationForm
 from django.shortcuts import render,redirect
 # from django.contrib.auth.forms import UserCreationForm  
 from django.contrib.auth import logout
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User , Group
 from django.contrib import messages
 from .models import *
 from .models import varieties
 
 # from login_auth import templates
-
+print(Group)
 # Create your views here.
 # from log.forms import YourForm
 
 def pin_check(s):
     
-    l, u, p, d = 0, 0, 0, 0
-    # s = "N@gu_leSh03$"
-    if (len(s) >= 8):
-        for i in s:
-        # counting lowercase alphabets
-            if (i.islower()):
-                l+=1           
-        # counting uppercase alphabets
-            if (i.isupper()):
-                u+=1           
-        # counting digits
-            if (i.isdigit()):
-                d+=1           
-        # counting the mentioned special characters
-            if(i=='@'or i=='$' or i=='_'):
-                p+=1          
-        if (l>=1 and u>=1 and p>=1 and d>=1 and l+p+u+d==len(s)):
-            print("Valid Password")
-            return True    
-        else:
-            return False
-  
+    # l, u, p, d = 0, 0, 0, 0
+    # # s = "N@gu_leSh03$"
+    # if (len(s) >= 8):
+    #     for i in s:
+    #     # counting lowercase alphabets
+    #         if (i.islower()):
+    #             l+=1           
+    #     # counting uppercase alphabets
+    #         if (i.isupper()):
+    #             u+=1           
+    #     # counting digits
+    #         if (i.isdigit()):
+    #             d+=1           
+    #     # counting the mentioned special characters
+    #         if(i=='@'or i=='$' or i=='_'):
+    #             p+=1          
+    #     if (l>=1 and u>=1 and p>=1 and d>=1 and l+p+u+d==len(s)):
+    #         print("Valid Password")
+    #         return True    
+    #     else:
+    #         return False
+    return True
 
 @login_required
 def change_password(request):
@@ -161,7 +161,7 @@ def event_disp(request,ev):
     for j in workshop:
         if j.workshop_name==ev:
             return render(request,"event_display.html",{"workshop":workshop,"ev":ev,"is_admin":isadmin(request)})
-        
+    return redirect("/")    
 @login_required
 def logout_view(request):
     logout(request)
