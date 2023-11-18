@@ -5,5 +5,6 @@ from .models import *
 admin.site.register(varieties)
 admin.site.register(Event)
 admin.site.register(registeration)
+admin.site.register(proshow)
 admin.site.register(Workshop)
 admin.site.register(Profile)

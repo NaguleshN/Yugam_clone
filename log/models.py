@@ -61,3 +61,10 @@ class registeration(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     event_or_workshop=models.CharField(max_length=30)
     
+    
+class proshow(models.Model):
+    sno=models.IntegerField()
+    title=models.CharField(max_length=20)
+    time=models.TimeField()
+    date=models.DateField()
+    

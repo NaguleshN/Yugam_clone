@@ -12,10 +12,11 @@
 </style>
 <h2>YUGAM</h2>
 <p class="hello"><br>
-   {{events}}
-   {% if p == "1" %}
+   {% comment %} {{events}} {% endcomment %}
+   {% comment %} {{p}} {% endcomment %}
+   {% if p == 1 %}
    YOU HAVE REGISTERED SUCCESSFULL FOR {{events}}.<br>THANKS FOR BEING A PART OF YUGAM .FURTHER DETAILS ARE MAILED.!
-   {% else%}
+   {% elif p == 0 %}
    YOU HAVE ALREADY REGISTERED SUCCESSFULL FOR {{events}}.<br>THANKS FOR BEING A PART OF YUGAM .
   {% endif %}
 </p>

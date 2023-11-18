@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% block content %}
+<label class="flex justify-center block text-gray-800 text-2xl font-bold mb-8" for="username">
+    PROSHOW BOOKING
+  </label>
+<div class="flex justify-evenly">
+    <div><a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded"  href="{% url 'booking' select='1' %}"> 01</a></div>
+    <div><a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded" href="{% url 'booking' select='2' %}"> 02</a></div>
+    <div><a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded" href="{% url 'booking' select='3' %}"> 03</a></div>
+
+</div>
+
+<div class="w-full max-w-64 mt-10">
+    <form class="bg-white rounded-2xl px-8 pt-6 pb-8 mb-4 shadow-lg"  id="for" method="POST">
+      {% csrf_token%}
+
+      {% if select   == 1 %}
+      <div class="text-3xl font-bold flex justify-center mb-4">
+        PRADEEPKUMAR CONCERT
+        </div>
+        
+      <div class="flex justify-center align-items">
+        <img
+            class="object-cover w-1/2 aspect-4/3 rounded-2xl shadow-lg"
+            src="https://i.ytimg.com/vi/1B-5hs2oGTw/maxresdefault.jpg"
+            alt="apple watch photo"
+          />
+      </div>
+      <div class="mb-4 flex justify-center mt-4">
+        <label class="block text-gray-700 text-lg font-bold mb-2 mr-4 " for="ins">
+          VIP SEATS AVAILABLE: 
+        </label>
+        <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+           100 {% comment %} {{}} {% endcomment %}
+        </label>
+    </div>
+    <label class="block text-gray-700 text-lg font-bold mb-2 mr-4 flex justify-center" for="ins">
+      PRICE : 1000 {% comment %} {{}} {% endcomment %}
+   </label>
+
+    <div class="flex items-center justify-center">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+      <div class="accordian"><a href="{% url 'order' sno='1' %}">ORDER</a></div>
+      </button>
+  </div>
+
+<div class="mb-4 flex justify-center mt-8">
+      <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+        ELITE CLASS TICKETS AVAILABLE : 
+      </label>
+      <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+        300 {% comment %} {{}} {% endcomment %}
+      </label>
+</div> 
+<label class="block text-gray-700 text-lg font-bold mb-2 mr-4 flex justify-center" for="ins">
+  PRICE : 300 {% comment %} {{}} {% endcomment %}
+</label>
+<div class="flex items-center justify-center">
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+  <div class="accordian"><a  href="{% url 'order' sno='1' %}">ORDER</a></div>
+  </button>
+</div>   
+
+
+      {% elif select == 3 %}
+      <div class="text-3xl font-bold flex justify-center mb-4">
+        ANIRUDH CONCERT
+        </div>
+      <div class="flex justify-center align-items">
+        <img
+            class="object-cover w-1/2 aspect-4/3 rounded-2xl shadow-lg"
+            src="https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_1316/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1663129655%2Fdjneh8jncpg9bjprosiz.jpg"
+            alt="apple watch photo"
+          />
+      </div>
+      <div class="mb-4 flex justify-center mt-4">
+        <label class="block text-gray-700 text-lg font-bold mb-2 mr-4 " for="ins">
+          VIP SEATS AVAILABLE: 
+        </label>
+        <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+           100 {% comment %} {{}} {% endcomment %}
+        </label>
+    </div>
+    <label class="block text-gray-700 text-lg font-bold mb-2 mr-4 flex justify-center " for="ins">
+      PRICE : 1000 {% comment %} {{}} {% endcomment %}
+   </label>
+
+    <div class="flex items-center justify-center">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        <div class="accordian"><a href="{% url 'order' sno='3' %}">ORDER</a></div>
+      </button>
+  </div>
+
+<div class="mb-4 flex justify-center mt-8">
+      <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+        ELITE CLASS TICKETS AVAILABLE : 
+      </label>
+      <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+        300 {% comment %} {{}} {% endcomment %}
+      </label>
+</div> 
+<label class="block text-gray-700 text-lg font-bold mb-2 mr-4 flex justify-center" for="ins">
+  PRICE : 300 {% comment %} {{}} {% endcomment %}
+</label>
+<div class="flex items-center justify-center">
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+  <div class="accordian"><a  href="{% url 'order' sno='3' %}">ORDER</a></div>
+  </button>
+</div>   
+
+      {%elif select == 2 %}
+      <div class="text-3xl font-bold flex justify-center mb-4">
+        YUVAN CONCERT
+        </div>
+      <div class="flex justify-center align-items">
+        <img
+            class="object-cover w-1/2 aspect-4/3 rounded-2xl shadow-lg"
+            src="https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_1316/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1690978978%2Fwbn4zqhreobszeavnfid.jpg"
+            alt="apple watch photo"
+          />
+      </div>
+      <div class="mb-4 flex justify-center mt-4">
+        <label class="block text-gray-700 text-lg font-bold mb-2 mr-4 " for="ins">
+          VIP SEATS AVAILABLE: 
+        </label>
+        <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+           100 {% comment %} {{}} {% endcomment %}
+        </label>
+    </div>
+    <label class="block text-gray-700 text-lg font-bold mb-2 mr-4 flex justify-center" for="ins">
+      PRICE : 1000 {% comment %} {{}} {% endcomment %}
+   </label>
+    <div class="flex items-center justify-center">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        <div class="accordian"><a href="{% url 'order' sno='2' %}">ORDER</a></div>
+      </button>
+  </div>
+
+<div class="mb-4 flex justify-center mt-8">
+      <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+        ELITE CLASS TICKETS AVAILABLE : 
+      </label>
+      <label class="block text-gray-700 text-lg font-bold mb-2 mr-4" for="ins">
+        300 {% comment %} {{}} {% endcomment %}
+      </label>
+</div>
+<label class="block text-gray-700 text-lg font-bold mb-2 mr-4 flex justify-center" for="ins">
+  PRICE : 300 {% comment %} {{}} {% endcomment %}
+</label> 
+<div class="flex items-center justify-center">
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+  <div class="accordian"><a href="{% url 'order' sno='2' %}">ORDER</a></div>
+  </button>
+</div>   
+
+
+      {% endif %}
+  
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    acc=document.getElementsByClassName("accordian")
+    acc.addEventListener("click", function() {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+    
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+  
+        {% comment %} <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" name="instruction" id="ins" placeholder="Enter the instruction"> {% endcomment %}
+     
+    </form>
+</div>
+{% if select == "1" %}
+
+
+{% endif %}
+
+
+
+{% endblock %}

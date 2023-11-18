@@ -1,4 +1,4 @@
-from log.utils import send_email_to_client
+# from log.utils import send_email_to_client
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import PasswordChangeForm
@@ -186,7 +186,7 @@ def delete(request,pk):
     return redirect("profile")
             
 def home(request): 
-    return render(request,'home.html',{"is_admin":isadmin(request)})
+    return render(request,'pro_show.html',{"is_admin":isadmin(request)})
 
 
 @login_required
@@ -305,12 +305,12 @@ def cancel_success(request,name):
                         registeration.objects.filter(Q(user = k.user) & Q(event_or_workshop = j.event_name)).delete() 
                         print(j)
                         return render(request,"cancel_suc.html",{"events":j.event_name})
-                
+
     return render(request,"cancel_suc.html")
-    
+
 
 @login_required
-def reg_success(request,name):
+def reg_success(request,name,identify):
     
     workshop=Workshop.objects.all()
     events=Event.objects.all()
@@ -324,31 +324,37 @@ def reg_success(request,name):
             check=1
             for i in workshop:
                 print(name)
-                if name=="workshop":        
-                    for k in reg:
-                        print(k.user)
-                        print(request.user)
-                        if request.user == k.user :
-                            if i.workshop_name==k.event_or_workshop: 
-                                p=0 
-                                print("hello")
-                                return render (request,"reg_suc.html",{'events':i,"is_admin":isadmin(request),"p":p})
-                    registeration.objects.create(user=request.user,event_or_workshop=i)   
-                    p=1    
-                    return render (request,"reg_suc.html",{'events':i,"is_admin":isadmin(request),"p":p})
+                if name=="workshop":  
+                    if i.id == identify:  
+                        for k in reg:
+                            print(k.user)
+                            print(request.user)
+                            if request.user == k.user :
+                                if i.workshop_name==k.event_or_workshop: 
+                                    # p=0 
+                                    print("hello")
+                                    return render (request,"reg_suc.html",{'events':i,"is_admin":isadmin(request),"p":0})
+                        
+                        registeration.objects.create(user=request.user,event_or_workshop=i)   
+                        return render (request,"reg_suc.html",{'events':i,"is_admin":isadmin(request),"p":1})
+                        break
             
             for j in events:
                 print(name)
-                if name == "event" :  
-                    for k in reg:
-                        if request.user == k.user :
-                            if j.event_name==k.event_or_workshop: 
-                                print("hello")
-                                p=0     
-                                return render (request,"reg_suc.html",{'events':j.event_name,"is_admin":isadmin(request),"p":p})
-                    p=1     
-                    registeration.objects.create(user=request.user,event_or_workshop=j.event_name)  
-                    return render (request,"reg_suc.html",{'events':j,"is_admin":isadmin(request),"p":p})
+                if name == "event" :
+                    print(j.id)
+                    if j.id == identify:
+                        p=0  
+                        for k in reg:
+                            if request.user == k.user :
+                                if j.event_name==k.event_or_workshop: 
+                                    print("hello")
+                                    # p=0     
+                                    return render (request,"reg_suc.html",{'events':j.event_name,"is_admin":isadmin(request),"p":0})
+                        # p+=1     
+                        registeration.objects.create(user=request.user,event_or_workshop=j.event_name)  
+                        return render (request,"reg_suc.html",{'events':j.event_name,"is_admin":isadmin(request),"p":1})
+                        break
 
     if check ==0:
         messages.error(request, "First create your profile to register")        
@@ -379,13 +385,45 @@ def events_enrolled(request):
 
 
 def send_email(request):
-    # recipient_list=["nagulesh03@gmail.com","chaaivisva303@gmail.com"],
+
     email=EmailMessage(
-            "Thanks for registration ",
-            "A event  conducted by kumaraguru college of technology has been successfully registered.",
-            settings.EMAIL_HOST_USER,
-            ["nagulesh03@gmail.com","chaaivisva303@gmail.com"],     
+        "Thanks for registration ",
+        " Your tickets are ordered successfull . ",
+        settings.EMAIL_HOST_USER,
+        ["goutham172904@gmail.com"],     
     )
     email.fail_silently=False,
     email.send()
     return redirect("home")
+
+
+def delete_event(request,pk):
+    event=Event.objects.all()
+    workshop=Workshop.objects.all()
+    for i in event:
+        if i.id == pk :
+            Event.objects.filter(event_name=i.event_name).delete()
+    return redirect("eventlist")
+    
+def delete_workshop(request,pk): 
+    event=Event.objects.all()
+    workshop=Workshop.objects.all()       
+    for i in workshop:
+        if i.id == pk:
+            Event.objects.filter(workshop_name=i.workshop_name).delete()
+    return redirect("workshop")    
+
+def pro_show(request):  
+    return render(request,"pro_show.html")
+
+def booking(request,select):
+   
+    return render(request,"booking.html",{"select":select})
+
+def order(request , sno):
+    pro=proshow.objects.all()
+    if request.method =="POST":
+        # return render(request,"terms.html")
+        send_email(request)
+        return render (request,"reg_suc.html",{'events':"Concert","is_admin":isadmin(request),"p":1})
+    return render(request,"order.html" ,{"sno":sno,"proshow":pro})

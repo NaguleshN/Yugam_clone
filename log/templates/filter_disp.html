@@ -3,16 +3,48 @@
 
 {%for i in reg%}
 {% if filter == i.event_or_workshop%}
-{{i.user}}
-{{i.event_or_workshop}}
+<table class="table-fixed">
+    <thead>
+      <tr>
+        <th> {{i.event_or_workshop}} </th>
+        {% comment %} <th>Artist</th>
+        <th>Year</th> {% endcomment %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{i.user}}</td>
+        {% comment %} <td>Malcolm Lockyer</td>
+        <td>1961</td> {% endcomment %}
+      </tr>
+    </tbody>
+</table>
+
+{% comment %} {{i.user}} {% endcomment %}
+{% comment %} {{i.event_or_workshop}} {% endcomment %}
 <br>
 {%endif%}
 {% endfor%} 
 {% if filter == "ALL"%}
 {% for i in reg%}
-
-{{i.user}}
-{{i.event_or_workshop}}
+<table class="table-fixed">
+    <thead>
+      <tr>
+        <th> {{i.event_or_workshop}} </th>
+        {% comment %} <th>Artist</th>
+        <th>Year</th> {% endcomment %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{i.user}}</td>
+        {% comment %} <td>Malcolm Lockyer</td>
+        <td>1961</td> {% endcomment %}
+      </tr>
+    </tbody>
+</table>
+{% comment %} {{i.user}} {% endcomment %}
+{% comment %} {{i.event_or_workshop}} {% endcomment %}
 <br>
 
 {%endfor%}

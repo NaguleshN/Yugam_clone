@@ -80,7 +80,7 @@
             <p class="mr-5 ">EVENTS ENROLLED :</p>
             <ul class="flex font-bold ">
                 <li><a href="{% url 'events_enrolled' %}" class="mr-5 hover:text-blue-700">EVENTS/WORKSHOP ENROLLED</a></li>
-                <li><a href="{% url 'send_email' %}" class="mr-5 hover:text-blue-700">SEND MAIL</a></li>
+                {% comment %} <li><a href="{% url 'send_email' %}" class="mr-5 hover:text-blue-700">SEND MAIL</a></li> {% endcomment %}
                 {% comment %} <a href="{% url 'send_email' %}" class="">send mail</a> {% endcomment %}
             </ul>
         </div> 
