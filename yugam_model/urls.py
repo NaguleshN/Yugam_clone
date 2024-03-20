@@ -25,4 +25,4 @@ urlpatterns = [
     path("accounts/", include('allauth.urls')),
     
 ]
-# urlpatterns += staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns()
